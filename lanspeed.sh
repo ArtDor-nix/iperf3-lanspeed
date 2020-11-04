@@ -44,7 +44,7 @@ fi
 if [ "$speed" -lt 1000 ]; then
 mysql -u $user -p$pass -D $database -e "UPDATE $table SET iperf_date = NOW() WHERE id = $ID;"
 else
-echo "iperf3 connection fail"
+echo "`date` $data connection error">>error.log
 fi
 sleep 10;;
 "unreachable") mysql -u $user -p$pass -D $database -e "UPDATE $table SET result = 0 WHERE id = $ID;"
